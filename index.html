@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Title</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <p class="label">Make a choice</p>
+      <h1>Title</h1>
+      <div class="divider"></div>
+      <p class="subtitle">Select one of the options below to continue</p>
+    </header>
+
+    <div class="options">
+      {% for option in options %}
+      <button
+        class="option"
+        onclick="selectOption(this, {{ loop.index }})"
+        aria-label="Choose {{ option.title }}"
+      >
+        <div class="option-num">{{ option.number }}</div>
+        <div class="option-title">{{ option.title }}</div>
+        <p class="option-desc">{{ option.desc }}</p>
+        <span class="option-arrow">↗</span>
+      </button>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

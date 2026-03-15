@@ -1,0 +1,8 @@
+[build]
+  command   = "pip install -r requirements.txt"
+  publish   = "."
+  functions = "netlify/functions"
+
+[dev]
+  command = "python app.py"
+  port    = 5000
